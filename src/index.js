@@ -18,7 +18,7 @@ app.use(
     .unless({
         path: '/auth'
     })
-    , async (err, req, res, next) => {
+    , (err, req, res, next) => {
         res.status(err.status).json({
             'message': err.message
         });

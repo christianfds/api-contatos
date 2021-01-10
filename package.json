@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/christianfds/api-contatos#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "celebrate": "^13.0.4",
     "dotenv": "^8.2.0",

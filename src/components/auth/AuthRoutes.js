@@ -7,7 +7,7 @@ const router = express.Router()
 router.post('/',
     celebrate({
         [Segments.BODY]: Joi.object().keys({
-            email: Joi.string().required(),
+            email: Joi.string().required().regex(/^[a-z0-9.]+@[a-z0-9]+(\.[a-z]+)+$/i),
             password: Joi.string().required()
         })
     }),
