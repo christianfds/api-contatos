@@ -1,8 +1,11 @@
 import express from "express";
 import jwt from "express-jwt";
 import morgan from "morgan";
-import auth from "./routes/auth.js";
-import contatos from "./routes/contatos.js";
+import {errors} from "celebrate";
+import bodyParser from "body-parser";
+import auth from "./components/auth/AuthRoutes.js";
+import contatos from "./components/contatos/ContatosRoutes.js";
+import {unhandled_error} from "./middleware/InternalError.js";
 
 const app = express();
 
@@ -22,10 +25,17 @@ app.use(
     }
 );
 
+// Parse do body para o formato json
+app.use(bodyParser.json())
 
 // Rotas
-app.use('/contatos', contatos);
+app.use('/contacts', contatos);
 app.use('/auth', auth);
+
+// Errors capturados pelo celebrate
+app.use(errors());
+// Erros inesperados
+app.use(unhandled_error);
 
 
 app.listen(process.env.PORT, () => {
