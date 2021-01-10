@@ -4,7 +4,7 @@ import morgan from "morgan";
 import {errors} from "celebrate";
 import bodyParser from "body-parser";
 import auth from "./components/auth/AuthRoutes.js";
-import contatos from "./components/contatos/ContatosRoutes.js";
+import contacts from "./components/contacts/ContactsRoutes.js";
 import {unhandled_error} from "./middleware/InternalError.js";
 
 const app = express();
@@ -29,7 +29,7 @@ app.use(
 app.use(bodyParser.json())
 
 // Rotas
-app.use('/contacts', contatos);
+app.use('/contacts', contacts);
 app.use('/auth', auth);
 
 // Errors capturados pelo celebrate
