@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Teste técnico mercafacil",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "node -r dotenv/config index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/christianfds/api-contatos/issues"
   },
-  "homepage": "https://github.com/christianfds/api-contatos#readme"
+  "homepage": "https://github.com/christianfds/api-contatos#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
 }
