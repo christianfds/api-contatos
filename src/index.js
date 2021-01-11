@@ -1,11 +1,11 @@
 import express from "express";
 import jwt from "express-jwt";
 import morgan from "morgan";
-import {errors} from "celebrate";
 import bodyParser from "body-parser";
 import auth from "./routes/auth/AuthRoutes.js";
 import contacts from "./routes/contacts/ContactsRoutes.js";
-import {unhandled_error} from "./middleware/InternalError.js";
+import { unhandled_error } from "./middleware/InternalError.js";
+import { celebrate_error } from "./middleware/CelebrateError.js";
 
 const app = express();
 
@@ -36,7 +36,7 @@ app.use('/contacts', contacts);
 app.use('/auth', auth);
 
 // Errors capturados pelo celebrate
-app.use(errors());
+app.use(celebrate_error);
 // Erros inesperados
 app.use(unhandled_error);
 
