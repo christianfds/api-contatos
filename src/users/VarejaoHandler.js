@@ -23,6 +23,8 @@ export class VarejaoHandler{
         const query = pgp.helpers.insert(contacts, cs);
 
         await db.none(query);
+        
+        await db.$pool.end();
     }
 
     format (contacts) {
