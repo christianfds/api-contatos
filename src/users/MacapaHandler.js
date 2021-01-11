@@ -1,7 +1,7 @@
 import * as mysql from "promise-mysql";
 
 const db_options = {
-    host: "localhost",
+    host: "mysql",
     port: 3306,
     user: "admin",
     password: "admin",

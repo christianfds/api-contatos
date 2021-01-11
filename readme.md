@@ -1,18 +1,9 @@
 # API Contatos
 ## Como executar
-Após realizar o clone do repositório, basta acessar o mesmo e instalar as dependências utilizando o npm:
+Após realizar o clone do repositório, basta inicializar os serviços com o comando:
 ```bash
-npm install
+docker-compose up -d
 ```
-Em seguida é necessário criar os containers de dev com:
-```bash
-docker-compose up
-```
-E por fim executar a aplicação utilizando:
-```bash
-npm start
-```
-
 ## Usuário
 Existem dois usuários, para realizar as requisições é necessário um token obtido através das seguintes credenciais:
 
