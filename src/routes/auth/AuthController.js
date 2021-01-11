@@ -1,26 +1,10 @@
 import jsonwebtoken from "jsonwebtoken";
 import { compare } from "bcrypt";
-import { readFile } from "fs";
-import { promisify } from "util";
-
-const readFileAwaitable = promisify(readFile)
+import { users } from "../../users/AllUsers.js";
 
 export async function auth_user(req, res, next){
     try {
-        // TODO: Alterar para consulta em DB
-        const users_file = await readFileAwaitable('./src/config/users.json');
-        const users_list = JSON.parse(users_file.toString());
-
-        let user = null;
-        for (let i = 0; i < users_list['users'].length; i++) {
-            const element = users_list['users'][i];
-            if(element.email == req.body.email){
-                user = element;
-                break;
-            }
-        }
-
-        if (user && await compare(req.body.password, user.password)){
+        if( (req.body.email in users) && (await compare(req.body.password, users[req.body.email].password)) ){
             const token = jsonwebtoken.sign({
                 email: req.body.email
             }, process.env.JWT_SECRET, {
@@ -36,7 +20,7 @@ export async function auth_user(req, res, next){
         }
         else{
             res.status(401).json({
-                "message": "Unauthorized user"
+                "message": "Invalid credentials"
             })
         }
     } catch (error) {
