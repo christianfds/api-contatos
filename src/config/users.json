@@ -1,23 +1,12 @@
 {
     "users": [
         {
-            "email": "user@mapaca.com.br",
-            "password": "$2b$10$wdlI3zcOzO7Ir1R1Dlml5uPCHpkQYl0sxKGCuQ3ixbra.Pp44mJL2",
-            "db_type": "mysql",
-            "db_host": "localhost",
-            "db_port": "3306",
-            "db_database": "admin",
-            "db_user": "admin",
-            "db_password": "admin"
+            "email": "user@macapa.com.br",
+            "password": "$2b$10$wdlI3zcOzO7Ir1R1Dlml5uPCHpkQYl0sxKGCuQ3ixbra.Pp44mJL2"
         },
         {
             "email": "user@varejao.com.br",
-            "password": "$2b$10$xx0IEIlY7F7jJmsKztaj4e.Nm6n4ZRBqi0JG7Kct2mkaX6G78Kz9K",
-            "db_type": "postgres",
-            "db_host": "localhost",
-            "db_port": "5432",
-            "db_user": "admin",
-            "db_password": "admin"
+            "password": "$2b$10$xx0IEIlY7F7jJmsKztaj4e.Nm6n4ZRBqi0JG7Kct2mkaX6G78Kz9K"
         }
     ]
 }

@@ -3,8 +3,8 @@ import jwt from "express-jwt";
 import morgan from "morgan";
 import {errors} from "celebrate";
 import bodyParser from "body-parser";
-import auth from "./components/auth/AuthRoutes.js";
-import contacts from "./components/contacts/ContactsRoutes.js";
+import auth from "./routes/auth/AuthRoutes.js";
+import contacts from "./routes/contacts/ContactsRoutes.js";
 import {unhandled_error} from "./middleware/InternalError.js";
 
 const app = express();
