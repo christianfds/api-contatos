@@ -27,8 +27,8 @@ Existem dois usuários, para realizar as requisições é necessário um token o
  - **Parâmetros do body:**
 	```json
 	{
-		"email": <string>,
-		"password": <string>
+		"email": "",
+		"password": ""
 	}
 	 ```
  - Retorno em caso de sucesso:
@@ -56,8 +56,8 @@ Existem dois usuários, para realizar as requisições é necessário um token o
 	{
 		"contacts": [
 			{
-				"name": <string>,
-				"cellphone": <string>
+				"name": "",
+				"cellphone": ""
 			},
 		]
 	}
@@ -67,7 +67,7 @@ Existem dois usuários, para realizar as requisições é necessário um token o
 	 - **Conteúdo:**
 		```json
 		{
-			"message": "Sucesso",
+			"message": "Sucess",
 		}
 		 ```
  - Retorno em caso de falha:
@@ -86,13 +86,12 @@ Existem dois usuários, para realizar as requisições é necessário um token o
 	 - **Conteúdo:**
 		```json
 		{
-			"length": <int>,
+			"length": 1,
 			"contacts": [
 				{
-				      "id": <int>,
-				      "name": <string>,
-				      "cellphone": <string>
-				    }
+					"id": 1,
+					"name": "",
+					"cellphone": ""
 				}
 			]
 		}
@@ -113,13 +112,12 @@ Existem dois usuários, para realizar as requisições é necessário um token o
 	 - **Conteúdo:**
 		```json
 		{
-			"length": <int>,
+			"length": 1,
 			"contacts": [
 				{
-				      "id": <int>,
-				      "name": <string>,
-				      "cellphone": <string>
-				    }
+					"id": 1,
+					"name": "",
+					"cellphone": ""
 				}
 			]
 		}
