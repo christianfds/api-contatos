@@ -27,8 +27,8 @@ Existem dois usuários, para realizar as requisições é necessário um token o
  - **Parâmetros do body:**
 	```json
 	{
-		"email": "string",
-		"password": "string"
+		"email": <string>,
+		"password": <string>
 	}
 	 ```
  - Retorno em caso de sucesso:
@@ -56,8 +56,8 @@ Existem dois usuários, para realizar as requisições é necessário um token o
 	{
 		"contacts": [
 			{
-				"name": "string",
-				"cellphone": "string"
+				"name": <string>,
+				"cellphone": <string>
 			},
 		]
 	}
@@ -67,7 +67,7 @@ Existem dois usuários, para realizar as requisições é necessário um token o
 	 - **Conteúdo:**
 		```json
 		{
-			"message": "Success",
+			"message": "Sucesso",
 		}
 		 ```
  - Retorno em caso de falha:
@@ -79,3 +79,56 @@ Existem dois usuários, para realizar as requisições é necessário um token o
 		}
 		 ```
 
+ ### **[GET] /contacts**
+ Realiza a busca de todos os contatos cadastrados pelo usuário.
+ - Retorno em caso de sucesso:
+	 - **Status:** 200 - Ok
+	 - **Conteúdo:**
+		```json
+		{
+			"length": <int>,
+			"contacts": [
+				{
+				      "id": <int>,
+				      "name": <string>,
+				      "cellphone": <string>
+				    }
+				}
+			]
+		}
+		 ```
+ - Retorno em caso de falha:
+	 - **Status:** 401 - Unauthorized
+	 - **Conteúdo:**
+		```json
+		{
+			"message": "Invalid credentials",
+		}
+		 ```
+
+### **[GET] /contacts/:id**
+ Realiza a busca do contato especificado pelo id.
+ - Retorno em caso de sucesso:
+	 - **Status:** 200 - Ok
+	 - **Conteúdo:**
+		```json
+		{
+			"length": <int>,
+			"contacts": [
+				{
+				      "id": <int>,
+				      "name": <string>,
+				      "cellphone": <string>
+				    }
+				}
+			]
+		}
+		 ```
+ - Retorno em caso de falha:
+	 - **Status:** 401 - Unauthorized
+	 - **Conteúdo:**
+		```json
+		{
+			"message": "Invalid credentials",
+		}
+		 ```
