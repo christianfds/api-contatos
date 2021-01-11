@@ -30,7 +30,7 @@ router.post('/',
         Joi.object().keys({
             contacts: Joi.array().items(
                 Joi.object().keys({
-                    name: Joi.string().required(),
+                    name: Joi.string().required().max(100),
                     cellphone: Joi.string().required().regex(/^[0-9]{13}$/i)
                 })
             )
