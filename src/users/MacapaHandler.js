@@ -12,7 +12,7 @@ export class MacapaHandler{
     constructor(){}
 
     async insert (contacts) {
-        this.format(contacts)
+        this.format(contacts);
 
         let db = await mysql.createConnection(db_options);
 
@@ -29,6 +29,7 @@ export class MacapaHandler{
             let element = contacts[i];
             element.name = element.name.toUpperCase()
             element.cellphone = `+${element.cellphone.substring(0, 2)} (${element.cellphone.substring(2, 4)}) ${element.cellphone.substring(4, 9)}-${element.cellphone.substring(9, 13)}`;
+            contacts[i] = Object.values(element);
         }
     }
 }
