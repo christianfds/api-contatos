@@ -12,6 +12,8 @@ services:
     ports:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - my_network
 
   postgresql:
     image: postgres
@@ -20,3 +22,19 @@ services:
     environment:
       POSTGRES_PASSWORD: "admin"
       POSTGRES_USER: "admin"
+    networks:
+      - my_network
+
+  api-contatos:
+    build: .
+    depends_on:
+      - mysql
+      - postgresql
+    ports:
+      - "5000:5000"
+    networks:
+      - my_network
+
+networks: 
+  my_network:
+    driver: bridge

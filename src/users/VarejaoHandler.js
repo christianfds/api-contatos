@@ -2,7 +2,7 @@ import Promise from "bluebird";
 import pgPromise from "pg-promise";
 
 const db_options = {
-    host: 'localhost',
+    host: 'postgresql',
     port: 5432,
     user: "admin",
     password: "admin",
