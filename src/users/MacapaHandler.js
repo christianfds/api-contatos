@@ -16,14 +16,12 @@ export class MacapaHandler{
 
         let db = await mysql.createConnection(db_options);
 
-        let result = await db.query(
+        await db.query(
             "INSERT INTO contacts (nome, celular) VALUES ?",
             [contacts]
         );
 
         db.end();
-        
-        console.debug(result);
     }
 
     format (contacts) {
