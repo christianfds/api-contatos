@@ -12,7 +12,7 @@ export class MacapaHandler{
     constructor(){}
 
     async insert (contacts) {
-        this.format_input(contacts);
+        this.#format_input(contacts);
 
         let db = await mysql.createConnection(db_options);
 
@@ -33,10 +33,23 @@ export class MacapaHandler{
 
         db.end();
 
-        return this.format_output(result);
+        return this.#format_output(result);
     }
 
-    format_input (contacts) {
+    async get_single(id) {
+        let db = await mysql.createConnection(db_options);
+
+        let result = await db.query(
+            "SELECT * FROM contacts WHERE contacts.id = ?;",
+            id
+        );
+
+        db.end();
+
+        return this.#format_output(result);
+    }
+
+    #format_input (contacts) {
         for (let i = 0; i < contacts.length; i++) {
             let element = contacts[i];
             element.name = element.name.toUpperCase()
@@ -45,7 +58,7 @@ export class MacapaHandler{
         }
     }
 
-    format_output(query_result) {
+    #format_output(query_result) {
         let response = {
             length: query_result.length,
             contacts: []

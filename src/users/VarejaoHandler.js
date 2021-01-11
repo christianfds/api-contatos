@@ -14,7 +14,7 @@ export class VarejaoHandler{
     constructor(){}
 
     async insert (contacts) {
-        this.format_input(contacts)
+        this.#format_input(contacts)
 
         let db = pgp(db_options);
 
@@ -34,10 +34,20 @@ export class VarejaoHandler{
 
         await db.$pool.end();
 
-        return this.format_output(result);
+        return this.#format_output(result);
+    }
+    
+    async get_single(id) {
+        let db = pgp(db_options);
+
+        let result = await db.any("SELECT * FROM contacts WHERE contacts.id = $1;", id);
+
+        await db.$pool.end();
+
+        return this.#format_output(result);
     }
 
-    format_input (contacts) {
+    #format_input (contacts) {
         for (let i = 0; i < contacts.length; i++) {
             let element = contacts[i];
 
@@ -48,7 +58,7 @@ export class VarejaoHandler{
         }
     }
 
-    format_output(query_result) {
+    #format_output(query_result) {
         let response = {
             length: query_result.length,
             contacts: []

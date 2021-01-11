@@ -6,6 +6,18 @@ import express from "express";
 const router = express.Router();
 const controller = new ContactsController();
 
+
+router.get('/:id',
+    check_credentials,
+    celebrate({
+        [Segments.PARAMS]:
+            Joi.object().keys({
+                id: Joi.number().required()
+            })
+    }),
+    controller.get_contact
+);
+
 router.get('/',
     check_credentials,
     controller.get_contacts
