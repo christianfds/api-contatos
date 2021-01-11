@@ -6,6 +6,11 @@ import express from "express";
 const router = express.Router();
 const controller = new ContactsController();
 
+router.get('/',
+    check_credentials,
+    controller.get_contacts
+);
+
 router.post('/',
     check_credentials,
     celebrate({
