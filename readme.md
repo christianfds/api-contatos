@@ -6,7 +6,7 @@ npm install
 ```
 Em seguida é necessário criar os containers de dev com:
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 E por fim executar a aplicação utilizando:
 ```bash
