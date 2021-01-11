@@ -12,7 +12,7 @@ export class MacapaHandler{
     constructor(){}
 
     async insert (contacts) {
-        contacts = this.format(contacts)
+        this.format(contacts)
 
         let db = await mysql.createConnection(db_options);
 
