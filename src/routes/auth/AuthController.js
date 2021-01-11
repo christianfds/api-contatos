@@ -14,8 +14,10 @@ export async function auth_user(req, res, next){
         let user = null;
         for (let i = 0; i < users_list['users'].length; i++) {
             const element = users_list['users'][i];
-            if(element.email == req.body.email)
+            if(element.email == req.body.email){
                 user = element;
+                break;
+            }
         }
 
         if (user && await compare(req.body.password, user.password)){
