@@ -10,7 +10,7 @@ export async function add_contacts(req, res, next){
         let handler = null;
         if (!(req.user.email in users)){
             res.status(401).json({
-                "message": "Unauthorized user"
+                "message": "Invalid credentials"
             })
         }
 
