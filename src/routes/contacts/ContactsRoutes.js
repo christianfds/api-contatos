@@ -1,13 +1,9 @@
 import { celebrate, Joi, Segments } from "celebrate";
-import { add_contacts } from "./ContactsController.js";
+import { ContactsController } from "./ContactsController.js";
 import express from "express";
-const router = express.Router()
 
-router.get('/', async (req, res, next) => {
-    res.json([
-            'oi'
-    ]);
-})
+const router = express.Router();
+const controller = new ContactsController();
 
 router.post('/',
     celebrate({
@@ -21,7 +17,7 @@ router.post('/',
             )
         })
     }),
-    add_contacts
+    controller.add_contacts
 );
 
 export default router;

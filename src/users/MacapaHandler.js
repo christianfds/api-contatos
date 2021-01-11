@@ -2,10 +2,10 @@ import * as mysql from "promise-mysql";
 
 const db_options = {
     host: "localhost",
-    port: "3306",
-    database: "admin",
+    port: 3306,
     user: "admin",
-    password: "admin"
+    password: "admin",
+    database: "admin"
 }
 
 export class MacapaHandler{

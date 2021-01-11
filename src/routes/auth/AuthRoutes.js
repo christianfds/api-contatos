@@ -1,8 +1,9 @@
 import { celebrate, Joi, Segments } from "celebrate";
-import { auth_user } from "./AuthController.js";
+import { AuthController } from "./AuthController.js";
 import express from "express";
 
-const router = express.Router()
+const router = express.Router();
+const controller = new AuthController();
 
 router.post('/',
     celebrate({
@@ -11,7 +12,7 @@ router.post('/',
             password: Joi.string().required()
         })
     }),
-    auth_user
+    controller.auth_user
 )
 
 export default router;

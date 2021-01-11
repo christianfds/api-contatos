@@ -9,6 +9,9 @@ import {unhandled_error} from "./middleware/InternalError.js";
 
 const app = express();
 
+process.env.PORT = process.env.PORT || 5000;
+process.env.JWT_SECRET = process.env.JWT_SECRET || 'batata';
+
 // Utiliza o morgan para gerar logs
 app.use(morgan('combined'));
 
@@ -37,7 +40,6 @@ app.use(errors());
 // Erros inesperados
 app.use(unhandled_error);
 
-
 app.listen(process.env.PORT, () => {
-    console.log(`Listening on port ${process.env.PORT}`)
+    console.log(`Listening on port ${process.env.PORT}`);
 });
