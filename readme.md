@@ -1,6 +1,7 @@
+
 # API Contatos
 ## Como executar
-Após realizar o clone do repositório, basta inicializar os serviços com o comando:
+Após realizar o clone do repositório, basta inicializar os serviços com o comando *(é recomendado criar um arquivo .env para definir um secret para a geração dos tokens jwt)*:
 ```bash
 docker-compose up -d
 ```
@@ -66,7 +67,7 @@ Existem dois usuários, para realizar as requisições é necessário um token o
 	 - **Conteúdo:**
 		```json
 		{
-			"message": "Sucesso",
+			"message": "Success",
 		}
 		 ```
  - Retorno em caso de falha:
